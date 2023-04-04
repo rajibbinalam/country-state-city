@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateStatesTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -24,8 +23,6 @@ class CreateStatesTable extends Migration
         });
     }
 
-
-
     /**
      * Reverse the migrations.
      *
@@ -35,4 +32,4 @@ class CreateStatesTable extends Migration
     {
         Schema::dropIfExists('states');
     }
-};
+}

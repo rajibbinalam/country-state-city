@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
  */
 class CountryStateCity extends Facade
 {
-    protected static function getFacadeAccessor():string
+    protected static function getFacadeAccessor(): string
     {
         // return \VendorName\Skeleton\Skeleton::class;
         return 'Country-State-City';

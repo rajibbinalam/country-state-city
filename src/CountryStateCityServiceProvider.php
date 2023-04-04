@@ -23,21 +23,15 @@ class CountryStateCityServiceProvider extends ServiceProvider
     //         ->hasCommand(SkeletonCommand::class);
     // }
 
-
-
-
-
     /**
      * Register any application services.
      */
     public function register(): void
     {
-        $this->app->bind('Country-State-City', function($app){
+        $this->app->bind('Country-State-City', function ($app) {
             return new \Rajib\LaravelCountryStateCity\CountryStateCity();
         });
     }
-
-
 
     /**
      * Bootstrap any application services.
@@ -47,16 +41,17 @@ class CountryStateCityServiceProvider extends ServiceProvider
         $this->registerPublishes();
     }
 
-    private function registerPublishes(){
+    private function registerPublishes()
+    {
         $basePath = dirname(__DIR__);
 
         $arrPublshers = [
-            'migrations'=>[
+            'migrations' => [
                 "$basePath/database/migrations" => database_path('migrations'),
             ],
-            'seeders'=>[
+            'seeders' => [
                 "$basePath/database/seeders" => database_path('seeders'),
-            ]
+            ],
         ];
 
         foreach ($arrPublshers as $group => $paths) {

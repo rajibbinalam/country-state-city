@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCountriesTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -23,8 +22,6 @@ class CreateCountriesTable extends Migration
         });
     }
 
-
-
     /**
      * Reverse the migrations.
      *
@@ -34,4 +31,4 @@ class CreateCountriesTable extends Migration
     {
         Schema::dropIfExists('countries');
     }
-};
+}

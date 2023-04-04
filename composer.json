@@ -1,17 +1,19 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "rajibbinalam/country-state-city",
+    "description": "find country state and cities all over the world",
     "keywords": [
-        ":vendor_name",
+        "country-state-city",
         "laravel",
-        ":package_slug"
+        "country",
+        "state",
+        "city"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/rajibbinalam/country-state-city",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "rajibbinalam",
+            "email": "rajibbinalam@gmail.com",
             "role": "Developer"
         }
     ],
@@ -35,36 +37,23 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Rajib\\LaravelCountryStateCity\\": "src/"
         }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
-        }
-    },
-    "scripts": {
-        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
-        "analyse": "vendor/bin/phpstan analyse",
-        "test": "vendor/bin/pest",
-        "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint"
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true,
-            "phpstan/extension-installer": true
+            "pestphp/pest-plugin": false,
+            "phpstan/extension-installer": false
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Rajib\\LaravelCountryStateCity\\CountryStateCityServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "CountryStateCity": "Rajib\\LaravelCountryStateCity\\CountryStateCity"
             }
         }
     },

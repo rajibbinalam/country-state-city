@@ -2,12 +2,10 @@
 
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/rajibbinalam/country-state-city.svg?style=flat-square)](https://packagist.org/packages/rajibbinalam/country-state-city)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/rajibbinalam/country-state-city/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/rajibbinalam/country-state-city/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/rajibbinalam/country-state-city.svg?style=flat-square)](https://packagist.org/packages/rajibbinalam/country-state-city)
 
-This Package is provided 
+#### This Package is provid you world info about the country state and city name with their some local information
 
-## Accept the Contribution with respect
 
 ## Installation
 
@@ -17,17 +15,14 @@ You can install the package via composer:
 composer require rajibbinalam/country-state-city
 ```
 
-Publish and run the migrations with:
+Publish Vendor Files: Find the below files
+ - config > CountryStateCity.php
+ - database > migrations > country , state, city and timezone 
+ - database > seeders > country , state, city and timezone 
 
 ```bash
-php artisan vendor:publish --tag="rajib\LaravelCountryStateCity\CountryStateCityServiceProvider"
-
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag=":package_slug-config"
+php artisan vendor:publish 
+# Provider: rajib\LaravelCountryStateCity\CountryStateCityServiceProvider
 ```
 
 ## Configuration The Migrations Table Name and Field
@@ -36,13 +31,13 @@ php artisan vendor:publish --tag=":package_slug-config"
 return [
     
 	/*
-	|--------------------------------------------------------------------------
+	|--------------------------------------------------------------------
 	| Configaration Your Migrations.
     |----------------------------------------------------------------
     | Set the table_name or use default LIKE: 'table_name' => 'countries',
     |----------------------------------------------------------------
     | 'required' => true, will be added to the migration as a field
-	|--------------------------------------------------------------------------
+	|---------------------------------------------------------------------
 	*/
 	'migrations' => [
 		'countries' => [
@@ -62,20 +57,28 @@ return [
 ];
 ```
 
-## Migrate and Database Seed
- Register the Seeders file to your database seeder and run the migrations and seed commands
-```php
+## Migrate
+```bash
 php artisan migrate
+```
+## Database Seed
+ Register the Seeders file to your ```DatabaseSeeder.php``` and run the seed commands
+
+```php
+$this->call([
+    CountryTableSeeder::class,
+    StateTableSeeder::class,
+    CityTableSeeder::class,
+    StateTableSeeder::class,
+]);
+```
+```bash
 php artisan db:seed
 ```
 
 ## Contributing
-
+We will accept your Contribution with respect.
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 

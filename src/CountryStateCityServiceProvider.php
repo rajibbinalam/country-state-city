@@ -46,6 +46,9 @@ class CountryStateCityServiceProvider extends ServiceProvider
         $basePath = dirname(__DIR__);
 
         $arrPublshers = [
+            'config' => [
+                "$basePath/config/CountryStateCity.php" => config_path('CountryStateCity.php'),
+            ],
             'migrations' => [
                 "$basePath/database/migrations" => database_path('migrations'),
             ],

@@ -13,14 +13,16 @@ class CreateCitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create(config('CountryStateCity.migrations.cities.table_name'), function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('state_id');
-            $table->string('state_code');
             $table->unsignedBigInteger('country_id');
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
+            $table->unsignedBigInteger('state_id');
+            foreach (config('CountryStateCity.migrations.cities.optional_fields') as $field => $value) {
+                if($value['required']){
+                    $table->string($field, $value['length'] ?? null);
+                }
+            }
             $table->timestamps();
 
             $table->foreign('state_id')->references('id')->on('states');
@@ -35,6 +37,6 @@ class CreateCitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists(config('CountryStateCity.migrations.cities.table_name'));
     }
 }

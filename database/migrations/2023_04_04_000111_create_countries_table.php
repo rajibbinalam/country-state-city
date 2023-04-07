@@ -13,23 +13,14 @@ class CreateCountriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('countries', function (Blueprint $table) {
+        Schema::create(config('CountryStateCity.migrations.countries.table_name'), function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('iso3');
-            $table->string('iso2');
-            $table->string('phone_code')->nullable();
-            $table->string('capital')->nullable();
-            $table->string('currency')->nullable();
-            $table->string('currency_symbol')->nullable();
-            $table->string('tld')->nullable();
-            $table->string('native')->nullable();
-            $table->string('region')->nullable();
-            $table->string('subregion')->nullable();
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
-            $table->string('emoji')->nullable();
-            $table->string('emojiU')->nullable();
+            foreach (config('CountryStateCity.migrations.countries.optional_fields') as $field => $value) {
+                if($value['required']){
+                    $table->string($field, $value['length'] ?? null);
+                }
+            }
             $table->timestamps();
         });
     }
@@ -41,6 +32,6 @@ class CreateCountriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('countries');
+        Schema::dropIfExists(config('CountryStateCity.migrations.countries.table_name'));
     }
 }

@@ -4,4 +4,5 @@ namespace Rajib\LaravelCountryStateCity;
 
 class CountryStateCity
 {
+    //
 }

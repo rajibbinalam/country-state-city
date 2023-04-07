@@ -13,14 +13,15 @@ class CreateTimezonesTable extends Migration
      */
     public function up()
     {
-        Schema::create('timezones', function (Blueprint $table) {
+        Schema::create(config('CountryStateCity.migrations.timezones.table_name'), function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('country_id');
             $table->string('zoneName');
-            $table->string('gmtOffset');
-            $table->string('gmtOffsetName');
-            $table->string('abbreviation');
-            $table->string('tzName');
+            foreach (config('CountryStateCity.migrations.timezones.optional_fields') as $field => $value) {
+                if($value['required']){
+                    $table->string($field, $value['length'] ?? null);
+                }
+            }
             $table->timestamps();
 
             $table->foreign('country_id')->references('id')->on('countries');
@@ -34,6 +35,6 @@ class CreateTimezonesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('timezones');
+        Schema::dropIfExists(config('CountryStateCity.migrations.timezones.table_name'));
     }
 }

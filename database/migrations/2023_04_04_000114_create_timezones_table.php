@@ -19,7 +19,7 @@ class CreateTimezonesTable extends Migration
             $table->string('zoneName');
             foreach (config('CountryStateCity.migrations.timezones.optional_fields') as $field => $value) {
                 if($value['required']){
-                    $table->string($field, $value['length'] ?? null);
+                    $table->string($field, $value['length'] ?? null)->nullable();
                 }
             }
             $table->timestamps();

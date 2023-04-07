@@ -18,7 +18,7 @@ class CreateCountriesTable extends Migration
             $table->string('name');
             foreach (config('CountryStateCity.migrations.countries.optional_fields') as $field => $value) {
                 if($value['required']){
-                    $table->string($field, $value['length'] ?? null);
+                    $table->string($field, $value['length'] ?? null)->nullable();
                 }
             }
             $table->timestamps();

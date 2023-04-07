@@ -17,15 +17,15 @@ return [
 			'optional_fields' => [
 				'phone_code' => [
 					'required' => true,
-					'length' => 5,
+					'length' => 20,
 				],
 				'iso3' => [
 					'required' => true,
-					'length' => 3,
+					'length' => 10,
 				],
 				'iso2' => [
 					'required' => true,
-					'length' => 3,
+					'length' => 10,
 				],
 				'capital' => [
 					'required' => true,
@@ -67,11 +67,11 @@ return [
 			'optional_fields' => [
 				'country_code' => [
 					'required' => true,
-					'length' => 3,
+					'length' => 10,
 				],
 				'state_code' => [
 					'required' => true,
-					'length' => 3,
+					'length' => 10,
 				],
 				'latitude' => [
 					'required' => true,
@@ -86,11 +86,11 @@ return [
 			'optional_fields' => [
 				'country_code' => [
 					'required' => true,
-					'length' => 3,
+					'length' => 10,
 				],
 				'state_code' => [
 					'required' => true,
-					'length' => 3,
+					'length' => 10,
 				],
 				'latitude' => [
 					'required' => true,
@@ -105,11 +105,11 @@ return [
             'optional_fields' => [
 				'gmtOffset' => [
 					'required' => true,
-					'length' => 3,
+					'length' => 10,
 				],
 				'gmtOffsetName' => [
 					'required' => true,
-					'length' => 3,
+					'length' => 10,
 				],
 				'abbreviation' => [
 					'required' => true,

@@ -15,7 +15,7 @@ You can install the package via composer:
 composer require rajibbinalam/country-state-city
 ```
 
-Publish Vendor Files: Find the below files
+Publish Vendor Files: ***Find the below files***
  - config > CountryStateCity.php
  - database > migrations > country , state, city and timezone 
  - database > seeders > country , state, city and timezone 
@@ -69,11 +69,11 @@ $this->call([
     CountryTableSeeder::class,
     StateTableSeeder::class,
     CityTableSeeder::class,
-    StateTableSeeder::class,
+    TimezoneTableSeeder::class,
 ]);
 ```
 ```bash
-php artisan db:seed
+php artisan db:seed    # it's need some time to seed the database
 ```
 
 ## Contributing

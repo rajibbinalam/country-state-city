@@ -10,7 +10,7 @@ class StateTableSeeder extends Seeder
     {
         foreach($this->timezone() as $timezone) {
             DB::table(config('CountryStateCity.migrations.timezones.table_name'))->insert([
-                "id"                => $timezone['id'],
+                // "id"                => $timezone['id'],
                 "zoneName"          => $timezone['zoneName'],
                 "country_id"        => $timezone['country_id'],
                 "gmtOffset"         => $timezone['gmtOffset'],
